@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Timetable Generator</h1>
+    <p>Academic Scheduling System</p>
+  </header>
+
+  <main>
+    <!-- Section 1: Upload Data -->
+    <section id="upload-section" class="section">
+      <h2>Upload Data</h2>
+      <div class="upload-form">
+        <div class="form-group">
+          <label for="rooms-file">rooms.csv</label>
+          <input type="file" id="rooms-file" accept=".csv">
+        </div>
+        <div class="form-group">
+          <label for="faculty-file">faculty.csv</label>
+          <input type="file" id="faculty-file" accept=".csv">
+        </div>
+        <div class="form-group">
+          <label for="time-slots-file">time_slots.json</label>
+          <input type="file" id="time-slots-file" accept=".json">
+        </div>
+        <div class="form-group">
+          <label for="courses-files">Course CSV files (select multiple)</label>
+          <input type="file" id="courses-files" accept=".csv" multiple>
+        </div>
+        <button id="upload-btn" class="btn btn-primary">Upload All</button>
+      </div>
+
+      <div class="file-list-container">
+        <h3>Uploaded Files</h3>
+        <div id="file-list" class="file-list">
+          <!-- Files will be listed here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Generate -->
+    <section id="generate-section" class="section">
+      <h2>Generate</h2>
+      <div class="generate-cards">
+        <!-- Card 1: Class Timetable -->
+        <div class="card">
+          <h3>Class Timetable</h3>
+          <p>Generate weekly class schedule for all sections</p>
+          <button id="generate-timetable-btn" class="btn btn-primary">Generate</button>
+          <div class="spinner" id="timetable-spinner" style="display: none;"></div>
+        </div>
+
+        <!-- Card 2: Exam Schedule -->
+        <div class="card">
+          <h3>Exam Schedule</h3>
+          <p>Generate exam schedule with room assignments</p>
+          <div class="form-group">
+            <label for="exam-start-date">Start Date:</label>
+            <input type="date" id="exam-start-date">
+          </div>
+          <button id="generate-exam-btn" class="btn btn-primary">Generate</button>
+          <div class="spinner" id="exam-spinner" style="display: none;"></div>
+        </div>
+
+        <!-- Card 3: Faculty Timetable -->
+        <div class="card">
+          <h3>Faculty Timetable</h3>
+          <p>Generate individual timetables for each faculty</p>
+          <button id="generate-faculty-btn" class="btn btn-primary" disabled>Generate</button>
+          <div class="spinner" id="faculty-spinner" style="display: none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Results -->
+    <section id="results-section" class="section">
+      <h2>Results</h2>
+      <div id="results-container">
+        <!-- Results will be displayed here -->
+      </div>
+    </section>
+
+    <!-- Section 4: Validation Report -->
+    <section id="validation-section" class="section">
+      <h2>Validation Report</h2>
+      <button id="validate-btn" class="btn btn-secondary">Run Conflict Check</button>
+      <div id="validation-container">
+        <!-- Validation results will be displayed here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Timetable Generator - Academic Scheduling System</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
